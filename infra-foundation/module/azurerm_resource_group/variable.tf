@@ -1,9 +1,10 @@
-variable "rg" {
+variable "azure_resource_group" {
   type = map(object({
     name     = string
     location = string
-    tags     = map(string)
+    tags     = optional(map(string))
   }))
 
 }
+
 

@@ -1,15 +1,14 @@
-variable "network" {
+variable "azure_virtual_network" {
   type = map(object({
-    name                = string
+    vnet_name           = string
     location            = string
     resource_group_name = string
     address_space       = list(string)
     dns_servers         = optional(list(string))
+    tags                = optional(map(string))
     subnet = map(object({
-      sub_name       = string
-      address_prefix = list(string)
+      subnet_name      = string
+      address_prefixes = list(string)
     }))
-    tags = optional(map(string))
   }))
-
 }
